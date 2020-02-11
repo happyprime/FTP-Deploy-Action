@@ -1,12 +1,12 @@
 FROM alpine:3.10
 
 LABEL version="1.0.0"
-LABEL repository="https://github.com/SamKirkland/FTP-Deploy-Action"
-LABEL homepage="https://github.com/SamKirkland/FTP-Deploy-Action"
-LABEL maintainer="Sam Kirkland <FTP-Deploy-Action@samkirkland.com>"
+LABEL repository="https://github.com/HappyPrime/FTP-Deploy-Action"
+LABEL homepage="https://github.com/HappyPrime/FTP-Deploy-Action"
+LABEL maintainer="Jeremy Felt <jeremy@happyprime.co>"
 
-LABEL "com.github.actions.name"="FTP Deploy Action"
-LABEL "com.github.actions.description"="Deploy your website via FTP"
+LABEL "com.github.actions.name"="Happy Prime FTP Deploy Action"
+LABEL "com.github.actions.description"="Deploy Happy Prime repos via FTP"
 LABEL "com.github.actions.icon"="upload-cloud"
 LABEL "com.github.actions.color"="orange"
 

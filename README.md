@@ -15,13 +15,15 @@ jobs:
     steps:
     - uses: actions/checkout@master
     - name: FTP-Deploy-Action
-      uses: SamKirkland/FTP-Deploy-Action@2.0.0
+      uses: HappyPrime/FTP-Deploy-Action@2.0.0
       env:
-        FTP_SERVER: ftp.samkirkland.com
-        FTP_USERNAME: myFtpUserName
+        FTP_METHOD: ftp
+        FTP_PORT: 21
+        FTP_SERVER: ${{ secrets.FTP_SERVER }}
+        FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
         FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-        ARGS: --delete
-        # --delete arg will delete files on the server if you've deleted them in git
+        LOCAL_DIR: ${{ secrets.LOCAL_DIR }}
+        REMOTE_DIR: ${{ secrets.REMOTE_DIR }}
 ```
 
 1. Select the repository you want to add the action to
@@ -82,20 +84,20 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    
+
     - name: Use Node.js 12.x
       uses: actions/setup-node@v1
       with:
         node-version: '12.x'
-        
+
     - name: Build Project
       run: |
         npm install
         npm run build --if-present
-        
+
     - name: List output files
       run: ls
-      
+
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
@@ -117,7 +119,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    
+
     - name: FTP-Deploy-Action
       uses: SamKirkland/FTP-Deploy-Action@2.0.0
       env:
@@ -180,7 +182,7 @@ action "FTP-Deploy-Action" {
   - In another powershell window nagivate to the dos2unix folder /bin
   - Run this command every time you modify entrypoint.sh `.\dos2unix.exe "{FULL_PATH_TO_REPO\entrypoint.sh}"`
 - Run `docker run action`
-  
+
 ##### Instructions for debugging on linux
 - Please submit a PR for linux instructions :)
 
