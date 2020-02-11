@@ -7,7 +7,7 @@ echo "Starting FTP Deploy"
 echo "Connecting"
 
 echo "Uploading files..."
-lftp $FTP_METHOD://$FTP_SERVER:$FTP_PORT -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror --exclude=node_modules --exclude=vendor --exclude=.git --verbose --delete --delete-excluded -R $LOCAL_DIR $REMOTE_DIR; quit"
+lftp $FTP_METHOD://$FTP_SERVER:$FTP_PORT -u $FTP_USERNAME,$FTP_PASSWORD -e "set ftp:ssl-allow no; mirror -x ^\node_modules/$ -s ^\vendor/$ -x ^\.git/$ --verbose --delete --delete-excluded -R $LOCAL_DIR $REMOTE_DIR; quit"
 
 echo "FTP Deploy Complete"
 exit 0
