@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-LABEL version="1.0.0"
+LABEL version="2.0.1"
 LABEL repository="https://github.com/HappyPrime/FTP-Deploy-Action"
 LABEL homepage="https://github.com/HappyPrime/FTP-Deploy-Action"
 LABEL maintainer="Jeremy Felt <jeremy@happyprime.co>"
